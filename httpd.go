@@ -1,6 +1,9 @@
 package main
 
-import "github.com/gin-gonic/gin"
+import (
+  "os"
+  "github.com/gin-gonic/gin"
+)
 
 func main() {
   r := gin.Default()
@@ -8,6 +11,5 @@ func main() {
     c.String(200, "pong")
   })
 
-  // Listen and server on 0.0.0.0:8080
-  r.Run(":8080")
+  r.Run(":" + os.Getenv("PORT"))
 }
